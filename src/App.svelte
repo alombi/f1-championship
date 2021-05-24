@@ -10,7 +10,7 @@
    // Getting data
    async function getData(){
       //F1
-      var request = await fetch('http://ergast.com/api/f1/current/driverStandings.json')
+      var request = await fetch('https://ergast.com/api/f1/current/driverStandings.json')
       var response = await request.json()
       chart = response.MRData.StandingsTable.StandingsLists[0].DriverStandings
       round = response.MRData.StandingsTable.StandingsLists[0].round
