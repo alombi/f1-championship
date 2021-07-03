@@ -12,7 +12,7 @@
       return `${raceName}`
    }
    async function getNextRace(){
-      var request = await fetch('http://ergast.com/api/f1/current/next.json')
+      var request = await fetch('https://ergast.com/api/f1/current/next.json')
       var response = await request.json()
       let raceName = response.MRData.RaceTable.Races[0].raceName;
       nextRaceLocality = `${response.MRData.RaceTable.Races[0].Circuit.Location.locality}, ${response.MRData.RaceTable.Races[0].Circuit.Location.country}`
@@ -20,7 +20,7 @@
       return raceName
    }
    async function getTotalRaces(){
-      var request = await fetch('http://ergast.com/api/f1/current.json')
+      var request = await fetch('https://ergast.com/api/f1/current.json')
       var response = await request.json()
       let totalRaces = response.MRData.total
       return totalRaces  
