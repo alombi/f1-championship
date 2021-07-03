@@ -4,7 +4,7 @@
 
 
 <div class="home_container">
-   <h1 class="no_mobile">Chart</h1>
+   <h1 class="no_mobile">Formula One World Championship</h1>
    <div class="list">
       {#each chart as driver}
          <div class="item">
