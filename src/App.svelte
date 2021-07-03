@@ -2,6 +2,7 @@
 	import Header from './components/Header.svelte';
 	import Home from './components/Home.svelte';
 	import Footer from './components/Footer.svelte';
+   import Sidebar from './components/Sidebar.svelte';
 
 	//Declaring data
    let chart = [];
@@ -22,11 +23,12 @@
 </script>
 
 <main>
+   <Sidebar round={round} />
 	<Header round={round} />
 	{#await promise}
 		<span></span>
 	{:then chart}
 		<Home chart={chart} />
-		<Footer />
+		<!-- <Footer /> -->
 	{/await}
 </main>

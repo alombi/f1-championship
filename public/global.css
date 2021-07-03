@@ -4,6 +4,12 @@ body{
 	background-color: #42576B ;
 	color:white;
 	padding-left: 5px;
+	overflow-y: hidden;
+}
+@media(max-width:1000px) {
+	body{
+		overflow: scroll;
+	}
 }
 .positioning{
 	color:#a0abb5;
@@ -53,8 +59,25 @@ header{
 }
 
 /*Home*/
-.home_container{
-	padding-top: 85px;
+.list{
+	overflow-y: scroll;
+	max-height: 85vh;
+}
+.home_container h1{
+	/*This styles are for the desktop, where the sidebar is visible*/
+	padding-top: 10px;
+	padding-left: 10px;
+}
+@media(max-width:1000px) {
+	/*For mobile, without sidebar*/
+	.home_container{
+		padding-top: 85px;
+		padding-left: 0px;
+	}
+	.list{
+		overflow-y: unset;
+		max-height: unset;
+	}
 }
 .item{
 	background-color: #2e3c4a;
@@ -69,4 +92,46 @@ header{
 	text-align: center;
 	color:#a0abb5;
 	margin-top: 50px;
+}
+
+/*Sidebar*/
+.sidebar{
+	position: absolute;
+	top:0;
+	left:0;
+	height:100vh;
+	width: 250px;
+}
+.info{
+	margin-left:10px;
+	margin-bottom:30px;
+}
+.info hr{
+	margin-top: -15px;
+	opacity: 0.2;
+}
+.info p{
+	/*Adds more 7px*/
+	margin-left:7px;
+	margin-bottom: -10px;
+}
+.label{
+	opacity: 0.8;
+}
+main{
+	padding-left:260px;
+}
+.fake, header{
+	display: none;
+}
+@media(max-width:1000px) {
+	.sidebar{
+		display:none;
+	}
+	main{
+		padding-left: 0px;
+	}
+	.fake, header{
+		display: flex;
+	}
 }

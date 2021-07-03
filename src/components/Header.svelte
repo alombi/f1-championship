@@ -1,5 +1,5 @@
 <script>
-   export let round;
+   export let round = 'Loading...';
    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
    let day, month, year;
    let now = new Date()
