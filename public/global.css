@@ -68,6 +68,9 @@ header{
 	padding-top: 10px;
 	padding-left: 10px;
 }
+.winner{
+	text-align: center;
+}
 @media(max-width:1000px) {
 	/*For mobile, without sidebar*/
 	.home_container{

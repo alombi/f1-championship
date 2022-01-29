@@ -1,33 +1,35 @@
 <script>
-   export let round = 'Loading...';
-   let lastRace, lastRaceWinner, lastRaceDate;
-   let totalRaces, nextRaceLocality, nextRaceDate;
-   let nextRace;
-   async function getLastRace(){
-      var request = await fetch('https://ergast.com/api/f1/current/last/results.json')
-      var response = await request.json()
-      let raceName = response.MRData.RaceTable.Races[0].raceName;
-      lastRaceDate = response.MRData.RaceTable.Races[0].date;
-      lastRaceWinner = response.MRData.RaceTable.Races[0].Results[0].Driver.familyName;
-      return `${raceName}`
-   }
-   async function getNextRace(){
-      var request = await fetch('https://ergast.com/api/f1/current/next.json')
-      var response = await request.json()
-      let raceName = response.MRData.RaceTable.Races[0].raceName;
-      nextRaceLocality = `${response.MRData.RaceTable.Races[0].Circuit.Location.locality}, ${response.MRData.RaceTable.Races[0].Circuit.Location.country}`
-      nextRaceDate = response.MRData.RaceTable.Races[0].date
-      return raceName
-   }
-   async function getTotalRaces(){
-      var request = await fetch('https://ergast.com/api/f1/current.json')
-      var response = await request.json()
-      let totalRaces = response.MRData.total
-      return totalRaces  
-   }
-   totalRaces = getTotalRaces()
-   lastRace = getLastRace()
-   nextRace = getNextRace()
+  export let round = 'Loading...';
+  import { races } from '../store.js';
+  let lastRace, lastRaceWinner, lastRaceDate;
+  let totalRaces, nextRaceLocality, nextRaceDate;
+  let nextRace;
+  async function getLastRace(){
+    var request = await fetch('https://ergast.com/api/f1/current/last/results.json')
+    var response = await request.json()
+    let raceName = response.MRData.RaceTable.Races[0].raceName;
+    lastRaceDate = response.MRData.RaceTable.Races[0].date;
+    lastRaceWinner = response.MRData.RaceTable.Races[0].Results[0].Driver.familyName;
+    return `${raceName}`
+  }
+  async function getNextRace(){
+    var request = await fetch('https://ergast.com/api/f1/current/next.json')
+    var response = await request.json()
+    let raceName = response.MRData.RaceTable.Races[0].raceName;
+    nextRaceLocality = `${response.MRData.RaceTable.Races[0].Circuit.Location.locality},   ${response.MRData.RaceTable.Races[0].Circuit.Location.country}`
+    nextRaceDate = response.MRData.RaceTable.Races[0].date
+    return raceName
+  }
+  async function getTotalRaces(){
+    var request = await fetch('https://ergast.com/api/f1/current.json')
+    var response = await request.json()
+    let totalRaces = response.MRData.total
+    races.set(response.MRData.total)
+    return totalRaces
+  }
+  totalRaces = getTotalRaces()
+  lastRace = getLastRace()
+  nextRace = getNextRace()
 </script>
 
 
