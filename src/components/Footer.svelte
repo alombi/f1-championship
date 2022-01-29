@@ -1,3 +1,1 @@
-<div class="footer">
-   <p>Designed and developed by alombi - © 2021 alombi</p>
-</div>
+https://rawcdn.githack.com/alombi/f1-championship/dd7e6f3e06d225a584d9018b3d0ede4dfe103ff3/src/components/Footer.svelte
